@@ -221,3 +221,106 @@
 // export default App
 
 
+// Browser Functionality related Hooks
+
+
+// import { useEffect, useState } from 'react'
+
+// function UseIsOnline(){
+//   const [isOnline, setIsOnline] = useState(window.navigator.onLine);
+
+//   useEffect(()=>{
+//     window.addEventListener("online", ()=>{
+//       setIsOnline(true);
+//     })
+
+//     window.addEventListener("offline", ()=>{
+//       setIsOnline(false);
+//     })
+//   },[])
+
+//   return isOnline
+// }
+
+// function App(){
+//   const isOnline = UseIsOnline();
+//   if (isOnline){
+//     return "you are online "
+//   }
+
+//   return "you are offline please connect to the internet"
+// }
+
+// export default App
+
+
+// Mouse pointer HOOK
+
+// import { useEffect, useState } from 'react'
+
+// const useMousePointer = () => {
+//   const [position, setPosition] = useState({ x: 0, y: 0 });
+
+//   const handleMouseMove = (e) => {
+//     setPosition({ x: e.clientX, y: e.clientY });
+//   };
+
+//   useEffect(() => {
+//     window.addEventListener('mousemove', handleMouseMove);
+//     return () => {
+//       window.removeEventListener('mousemove', handleMouseMove);
+//     };
+//   }, []);
+
+//   return position;
+// };
+
+// function App() {
+//   const mousePointer = useMousePointer();
+
+//   return (
+//     <>
+//       Your mouse position is {mousePointer.x} {mousePointer.y}
+//     </>
+//   )
+// }
+
+// export default App
+
+// // window size display HOOK
+
+// import { useEffect, useState } from "react";
+
+// const Usewindowsize = () =>{
+//     const [position, setPosition] = useState({width: window.innerWidth, height: window.innerHeight});
+//     const handlewindowsize = () => {
+//       setPosition({
+//         width: window.innerWidth,
+//         height: window.innerHeight,
+
+//       });
+//     };
+
+//     useEffect(()=>{
+//       window.addEventListener('resize', handlewindowsize);
+
+//       return()=>{
+//         window.removeEventListener('resize',handlewindowsize);
+//       };
+//     },[]);
+
+//     return position;
+// };
+
+
+// function App(){
+// const windowsize = Usewindowsize();
+
+// return(
+//   <div>
+//     window size: {windowsize.width} {windowsize.height}
+//   </div>
+// );
+// }
+
+// export default App;
