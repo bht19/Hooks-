@@ -324,3 +324,67 @@
 // }
 
 // export default App;
+
+
+// Performance and Time based Hooks:
+
+// import { time } from "console";
+// import { useEffect, useState } from "react";
+
+// function useInterval(fn, timeout){
+//     useEffect(()=>{
+//         setInterval(()=>{
+//             fn()
+//         }, timeout)
+//     },[])
+// }
+
+// function App(){
+//     const [count, setCount] = useState(0);
+
+//     useInterval(()=>{
+//         setCount(c => c + 1);
+//     },1000)
+
+//     return{
+//         <>
+
+//         </>
+//     }
+// }
+
+// export default App;
+
+// Debouncing 
+
+import  { useState, useEffect } from 'react';
+
+function useDebounce(value, timeout){
+    const [debouncedValue, setDebouncedvalue] = useState(value);
+    
+    useEffect(()=>{
+        setTimeout(()=>{
+            setDebouncedvalue(value);
+        }, timeout);
+        return () => {
+            clearTimeout(timeoutNumber);
+        }
+    }, [value]);
+    
+    return debouncedValue;
+}
+
+function App(){
+    const [value, setValue] = useState(0);
+    const debouncedValue = useDebounce(value, 500);
+
+    return (
+    <>
+    Debounced value is {debouncedValue}
+    <input type="text" onChange={e => setValue(e.target.value)} placeholder="Search..."/>
+    </>
+  )
+}
+
+
+export default App;
